@@ -1,4 +1,5 @@
 import { Icon } from '@chakra-ui/react'
+import {useContext} from 'react'
 import { Flex,Spacer,Box,Image,Text,Button,Stack} from "@chakra-ui/react"
 import img1 from '../Images/Travler.png.png'
 import {EditIcon,StarIcon,InfoIcon} from '@chakra-ui/icons'
@@ -11,8 +12,17 @@ import {SiMastodon} from 'react-icons/si'
 import {CgMore} from 'react-icons/cg'
 import {TbWorld} from 'react-icons/tb'
 import Slider from './Slider'
+
+import { Appcontext } from '../Context/Auth'
+
 //import {}from "react-icons/fa";
 function Navbar(){
+
+
+const {handleLogin,handleLogout,auth,token}=useContext(Appcontext)
+
+
+
 
 
     return(
@@ -38,8 +48,8 @@ function Navbar(){
 
 
 
-
-<Flex width='7xl'  alignItems='center' ml='70' h='270'>
+<Box >
+<Flex width='7xl'  alignItems='center' ml='70' h='270' position='sticky' >
   <Box p='4'  ml='10' mt='4'>
   
   
@@ -99,7 +109,11 @@ function Navbar(){
   </Button>
 </Box>
 
-
+<Box ml='2'>{auth?<Button  colorScheme='pink' variant='solid'  >
+    Logout
+  </Button>:<Button  colorScheme='pink' variant='solid'  >
+    Login
+  </Button>   }</Box>
 
 <Box ml='2'>
 <Button leftIcon={<BsCartCheck size='35'/>} colorScheme='black' variant='ghost'  _hover={{backgroundColor:'#fbd0d9'}}>
@@ -112,6 +126,7 @@ function Navbar(){
  
   </Box>
 </Flex>
+</Box>
 
 
 

@@ -1,11 +1,12 @@
 import Navbar from './components/Navbar';
 import './App.css';
 import TravelStory from './Pages/Travelpage';
+import Mainpage from './components/Mainpage';
 function App() {
   return (
     <div className="App">
-     <TravelStory/> 
-<Navbar/>
+     <Navbar/> 
+<Mainpage/>
       
     </div>
   );

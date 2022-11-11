@@ -9,3 +9,28 @@
     margin: auto;
     border-radius: 10px;
 }
+
+.white img {
+    /* filter: url(filters.svg#grayscale); Firefox 3.5+ */
+    filter: gray; /* IE5+ */
+      -webkit-filter: grayscale(1); /* Webkit Nightlies & Chrome Canary */
+      transition: none;
+      -webkit-transition: all .2s ease-in-out;  
+    }
+
+    .white img:hover {
+    filter: none;
+      -webkit-filter: grayscale(0);
+      transform: none;
+      -webkit-transform: scale(1.10);
+    }
+
+    .desti{
+        transition: none;
+        -webkit-transition: all .2s ease-in-out;  
+    }
+
+    .desti:hover{
+        transform: none;
+        -webkit-transform: scale(1.10);
+    }

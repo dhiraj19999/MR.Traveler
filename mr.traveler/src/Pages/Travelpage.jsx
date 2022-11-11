@@ -2,7 +2,7 @@
 
 import {useState, useEffect} from 'react'
 
-import { Text,  Box } from '@chakra-ui/react'
+import { Text,  Box ,Grid,GridItem,Image} from '@chakra-ui/react'
 function TravelStory(){
     let [count,setCount]=useState(0)
     let arr=[
@@ -44,7 +44,21 @@ function TravelStory(){
 </Box>
 
 
+<Box mt='5'>
+<Grid
+  h='200px'
+  templateRows='repeat(2, 1fr)'
+  templateColumns='repeat(2, 1fr)'
+  gap={4}
+>
+  <GridItem rowSpan={2} colSpan={1}  ><Image src='https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/93/35/ae/caption.jpg?w=1200&h=-1&s=1&cx=1920&cy=1080&chk=v1_0fead5916d0df52f04ef'
 
+ w='900' h='700' borderRadius='20'/></GridItem>
+  <GridItem colSpan={1}    h={80} w={500}><Image src='https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/cd/a5/86/caption.jpg?w=1200&h=1200&s=1&cx=1920&cy=1080&chk=v1_1c72fb86bf69ccf6f57e' borderRadius='20' h='400' w='23'/></GridItem>
+  <GridItem colSpan={1}   h={80} w={500} ><Image src='https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/c7/1c/3a/caption.jpg?w=1200&h=1200&s=1&cx=1920&cy=1080&chk=v1_38d18a124bc6505d3c22' w='22' mt='20' borderRadius='25'/></GridItem>
+  
+</Grid>
+</Box>
 
 
 
