@@ -1,19 +1,26 @@
-import { useState,useEffect,} from "react"
-import { Box,Tooltip,Input,Center,InputGroup,Grid,InputRightElement,
-    FormLabel,Select,Text,Badge,Image,SimpleGrid,Button} from "@chakra-ui/react"
+import {useContext} from 'react'
+
+import { Appcontext } from '../Context/Auth'
+import { useState} from "react"
+import { Box,Input,Center,InputGroup,InputRightElement,
+    Text,Badge,Image,SimpleGrid,Button} from "@chakra-ui/react"
 import { SearchIcon,StarIcon } from "@chakra-ui/icons"
-import { useToast } from "@chakra-ui/react"
+
 import Loading from "../Loading"
+import Navbar from "../components/Navbar"
+
+
 
 function HotelPage(){
-const[buttonloading,setButtonloading]=useState(false)
-const [cityid,setCityid]=useState('')
+
+
 const[loading,setLoding]=useState(false)
 const[city,setCity]=useState('')
 const[data,setData]=useState(null)
-const toast = useToast()
 
-
+const[checkin,setCheckin]=useState('')
+const[chekout,setChekout]=useState('')
+const{addData,dat}=useContext(Appcontext)
 function handleClick(){
 
 
@@ -41,7 +48,7 @@ setLoding(true)
 
 }
 
-
+console.log("Cart data ",dat)
 
 
 function getData(cityid){
@@ -54,7 +61,7 @@ function getData(cityid){
         }
     };
     
-    fetch(`https://priceline-com-provider.p.rapidapi.com/v1/hotels/search?sort_order=HDR&location_id=${cityid}&date_checkout=2022-11-16&date_checkin=2022-11-15&star_rating_ids=3.0%2C3.5%2C4.0%2C4.5%2C5.0&rooms_number=1&amenities_ids=FINTRNT%2CFBRKFST`, option)
+    fetch(`https://priceline-com-provider.p.rapidapi.com/v1/hotels/search?sort_order=HDR&location_id=${cityid}&date_checkout=${chekout}&date_checkin=${checkin}&star_rating_ids=3.0%2C3.5%2C4.0%2C4.5%2C5.0&rooms_number=1&amenities_ids=FINTRNT%2CFBRKFST`, option)
         .then(response => response.json())
         .then(response => setData(response.hotels)).then(setLoding(false))
         .catch(err => console.error(err));
@@ -70,15 +77,7 @@ console.log(data)
 
 
 
-function bookAdd(item){
-    toast({
-        title: 'Booking Added To The Cart',
-        status: 'success',
-        isClosable: true,
-        position:'top'
-      })
-   console.log(item)
-}
+
 
 
 
@@ -96,14 +95,23 @@ if(loading){
 
 return(
 <Box>
-
+<Navbar/>
 <Box>
-    <Center>
-    <InputGroup  ml='500' mt='40'>
-    <InputRightElement><SearchIcon mr='1100' w='6' h='8' _hover={{cursor:'pointer'}} onClick={handleClick}/></InputRightElement>
+<Center>    </Center>
+  
+   
+   
+    
+    <InputGroup  ml='100' mt='40'>
+    <Text mt='2' mr='3' fontWeight={'black'} >Date Checkin</Text>
+    <Input type={'text'}  placeholder='YY-MM-DD' w='50' mr='3'  focusBorderColor='pink.400' borderColor='crimson' onChange={(e)=>setCheckin(e.target.value)} />
+    <Text mt='2' mr='3'  fontWeight={'black'}>Date Checkout</Text>
+    <Input type={'text'} placeholder='YY-MM-DD' w='50' mr='3'  focusBorderColor='pink.400' borderColor='crimson' onChange={(e)=>setChekout(e.target.value)}/>
+    <InputRightElement><SearchIcon mr='600' w='6' h='8' _hover={{cursor:'pointer'}} onClick={handleClick}/></InputRightElement>
     <Input type='text' placeholder='City Name'  w='2xl' h='10' focusBorderColor='pink.400' borderColor='crimson' color='pink.200'  onChange={(e)=>setCity(e.target.value)}/>
-  </InputGroup>
-    </Center>
+ </InputGroup>
+   
+   
 </Box>
 
 
@@ -165,13 +173,13 @@ return(
             {item.totalReviewCount} reviews
             <Button
             ml='4'
-    isLoading={buttonloading==true}
+   
     loadingText='Loading'
     colorScheme='green'
     variant='solid'
     spinnerPlacement='end'
     _hover={{backgroundColor:'red.400'}}
-    onClick={()=>bookAdd(item)}
+    onClick={()=>addData(item)}
 
 
   >

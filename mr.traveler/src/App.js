@@ -1,14 +1,18 @@
-import Navbar from './components/Navbar';
+
 import './App.css';
-import TravelStory from './Pages/Travelpage';
-import Mainpage from './components/Mainpage';
-import HotelPage from './Pages/Hoteloage';
+
+import Allroutes from './AllRoutes/AllRoutes';
+
+
 
 function App() {
   return (
     <div className="App">
+    <Allroutes/>
+  
     
-      <HotelPage/>
+  
+      
     
       
     </div>

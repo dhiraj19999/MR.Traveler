@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
  import { Image,Box,Center,Text } from '@chakra-ui/react'
  import './slider.css'
 function Slider(){
-    const [data,setData]=useState("")
+   
     let [count,setCount]=useState(0)
 let arr=[
 
@@ -19,7 +19,7 @@ let arr=[
 
 ]
 
-if(count==8){
+if(count===8){
     setCount((prevCount)=>prevCount-8)
    
  }

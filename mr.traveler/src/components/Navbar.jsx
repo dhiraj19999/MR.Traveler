@@ -1,4 +1,4 @@
-import { Icon } from '@chakra-ui/react'
+import React from 'react'
 import {useContext} from 'react'
 import { Flex,Spacer,Box,Image,Text,Button,Stack} from "@chakra-ui/react"
 import img1 from '../Images/Travler.png.png'
@@ -11,15 +11,59 @@ import {MdRestaurant} from 'react-icons/md'
 import {SiMastodon} from 'react-icons/si'
 import {CgMore} from 'react-icons/cg'
 import {TbWorld} from 'react-icons/tb'
-import Slider from './Slider'
 
+import { Link } from 'react-router-dom'
 import { Appcontext } from '../Context/Auth'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //import {}from "react-icons/fa";
 function Navbar(){
+ 
+ 
+const {handleLogout,auth}=useContext(Appcontext)
 
 
-const {handleLogin,handleLogout,auth,token}=useContext(Appcontext)
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -104,21 +148,25 @@ const {handleLogin,handleLogout,auth,token}=useContext(Appcontext)
 
 
 <Box ml='2'   >
+<Link to='/login'>
 <Button  colorScheme='pink' variant='solid'  >
     Sign Up
   </Button>
+  </Link>
 </Box>
 
-<Box ml='2'>{auth?<Button  colorScheme='pink' variant='solid'  >
+<Box ml='2'>{auth?<Button  colorScheme='pink' variant='solid'  onClick={handleLogout} >
     Logout
   </Button>:<Button  colorScheme='pink' variant='solid'  >
     Login
   </Button>   }</Box>
 
 <Box ml='2'>
+<Link to='/cart'>
 <Button leftIcon={<BsCartCheck size='35'/>} colorScheme='black' variant='ghost'  _hover={{backgroundColor:'#fbd0d9'}}>
     <Text fontSize='x-large' color='black'>Cart </Text>
   </Button>
+  </Link>
 </Box>
 
 
@@ -131,13 +179,17 @@ const {handleLogin,handleLogout,auth,token}=useContext(Appcontext)
 
 
 <Stack direction='row' spacing={5} ml='290' mt='0'>
-  <Button rightIcon={<FaHotel size='35'/>} colorScheme='black' variant='outline' w='50' _hover={{backgroundColor:'#fbd0d9'}} size='lg'>
+ <Link to='/hotel'>
+  <Button rightIcon={<FaHotel size='35'/>} colorScheme='black' variant='outline' w='50' _hover={{backgroundColor:'#fbd0d9'}} size='lg' >
   <Text fontSize='x-large' color='black' fontFamily='serif'>Hotels</Text>
   </Button>
-  <Button rightIcon={<AiOutlineHome size='35'/>} colorScheme='black' variant='outline' _hover={{backgroundColor:'#fbd0d9'}} size='lg' >
-    <Text fontSize='x-large' color='black' fontFamily='serif'>Holiday Homes</Text>
-  </Button>
+</Link>
 
+<Link to='/'>
+  <Button rightIcon={<AiOutlineHome size='35'/>} colorScheme='black' variant='outline' _hover={{backgroundColor:'#fbd0d9'}} size='lg' >
+    <Text fontSize='x-large' color='black' fontFamily='serif'> Home Page</Text>
+  </Button>
+</Link>
 
 
 

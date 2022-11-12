@@ -12,7 +12,7 @@ function TravelStory(){
         {img:'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/c1/32/8b/caption.jpg?w=1200&h=-1&s=1&cx=1920&cy=1080&chk=v1_8aeeed5f31e73b4c9722'},
     ]
 
-    if(count==3){
+    if(count===3){
         setCount((prevCount)=>prevCount-3)
        
      }
@@ -35,7 +35,7 @@ function TravelStory(){
     return(
 
         <div  style={{marginLeft:'250px'}}>
-<img  src={arr[count].img} width="1300px"  height='1px' style={{borderRadius:'30px'}} >
+<img  src={arr[count].img} alt='alt-pic' width="1300px"  height='1px' style={{borderRadius:'30px'}} >
 
 </img>
 <Box ml='40' w='3xl' mt='15' >
