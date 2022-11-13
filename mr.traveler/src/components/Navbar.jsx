@@ -148,18 +148,18 @@ const {handleLogout,auth}=useContext(Appcontext)
 
 
 <Box ml='2'   >
-<Link to='/login'>
+
 <Button  colorScheme='pink' variant='solid'  >
     Sign Up
   </Button>
-  </Link>
+  
 </Box>
 
 <Box ml='2'>{auth?<Button  colorScheme='pink' variant='solid'  onClick={handleLogout} >
     Logout
-  </Button>:<Button  colorScheme='pink' variant='solid'  >
+  </Button>:<Link to='/login'><Button  colorScheme='pink' variant='solid'  >
     Login
-  </Button>   }</Box>
+  </Button> </Link>  }</Box>
 
 <Box ml='2'>
 <Link to='/cart'>

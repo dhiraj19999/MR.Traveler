@@ -8,6 +8,7 @@ function AppcontextProvider({children}){
 const [auth,SetAuth]=useState(false)
 let [token,setToken]=useState("")
 let[dat,setDat]=useState([])
+let [single,setSingle]=useState(null)
 const handleLogin=((toke)=>{
     SetAuth(true);
   setToken(toke)
@@ -32,9 +33,17 @@ const addData=(item)=>{
 }
 
 
+const singleItem=(sing)=>{
 
-    return <Appcontext.Provider  value={{handleLogin,handleLogout,auth,token,addData,dat}} >{children}</Appcontext.Provider>
+setSingle(sing)
 }
+
+
+
+
+    return <Appcontext.Provider  value={{handleLogin,setDat,handleLogout,auth,token,addData,dat,singleItem,single}} >{children}</Appcontext.Provider>
+}
+
 
 
 

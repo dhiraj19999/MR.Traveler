@@ -1,3 +1,4 @@
+import React from 'react'
 import {useContext} from 'react'
 
 import { Appcontext } from '../Context/Auth'
@@ -5,25 +6,59 @@ import { useState} from "react"
 import { Box,Input,Center,InputGroup,InputRightElement,
     Text,Badge,Image,SimpleGrid,Button} from "@chakra-ui/react"
 import { SearchIcon,StarIcon } from "@chakra-ui/icons"
-
+import { useToast } from '@chakra-ui/react'
 import Loading from "../Loading"
 import Navbar from "../components/Navbar"
+import Mainpage from '../components/Mainpage'
 
 
 
 function HotelPage(){
 
-
 const[loading,setLoding]=useState(false)
 const[city,setCity]=useState('')
 const[data,setData]=useState(null)
-
+const toast = useToast()
 const[checkin,setCheckin]=useState('')
 const[chekout,setChekout]=useState('')
 const{addData,dat}=useContext(Appcontext)
+
+const[navbar,setNavbar]=useState(true)
+
+
+
+
+
+
+
+
+
+function twoPro(item){
+   
+   addData(item)
+        
+   toast({
+    title:'Product Added To Cart Succesfully',
+    status: 'success',
+    position:'top',
+    isClosable: true,
+  })
+
+
+
+    
+    }
+    
+
+
+
+
+
+
+
 function handleClick(){
 
-
+setNavbar(false)
 setLoding(true)
 
 
@@ -96,7 +131,10 @@ if(loading){
 return(
 <Box>
 <Navbar/>
-<Box>
+
+<Box position={'relative'}>
+
+<Box position={'absolute'} right='20'  bottom='20' mr='30' mb='200' >
 <Center>    </Center>
   
    
@@ -104,15 +142,24 @@ return(
     
     <InputGroup  ml='100' mt='40'>
     <Text mt='2' mr='3' fontWeight={'black'} >Date Checkin</Text>
-    <Input type={'text'}  placeholder='YY-MM-DD' w='50' mr='3'  focusBorderColor='pink.400' borderColor='crimson' onChange={(e)=>setCheckin(e.target.value)} />
+    <Input type={'text'} color='black'  placeholder='YY-MM-DD' w='50' mr='3'  focusBorderColor='teal' borderColor='crimson' onChange={(e)=>setCheckin(e.target.value)} />
     <Text mt='2' mr='3'  fontWeight={'black'}>Date Checkout</Text>
-    <Input type={'text'} placeholder='YY-MM-DD' w='50' mr='3'  focusBorderColor='pink.400' borderColor='crimson' onChange={(e)=>setChekout(e.target.value)}/>
-    <InputRightElement><SearchIcon mr='600' w='6' h='8' _hover={{cursor:'pointer'}} onClick={handleClick}/></InputRightElement>
-    <Input type='text' placeholder='City Name'  w='2xl' h='10' focusBorderColor='pink.400' borderColor='crimson' color='pink.200'  onChange={(e)=>setCity(e.target.value)}/>
+    <Input type={'text'} placeholder='YY-MM-DD' w='50' mr='3'  focusBorderColor='teal' borderColor='crimson' onChange={(e)=>setChekout(e.target.value)}/>
+    <InputRightElement><SearchIcon mr='200' w='6' h='8' _hover={{cursor:'pointer'}} onClick={handleClick}/></InputRightElement>
+    <Input type='text' placeholder='City Name'  w='xl' h='10' focusBorderColor='teal' borderColor='crimson' color='pink.200'  onChange={(e)=>setCity(e.target.value)}/>
  </InputGroup>
    
    
 </Box>
+
+
+
+
+
+<Image borderRadius={'30'} ml='40' mt='3' h={'xl'} w='8xl' src='https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/59/ac/b6/lavasa-international.jpg?w=1600&h=900&s=1'/>
+
+    <Text    position={'absolute'}  fontSize="60"  right='20'  bottom='20' color={'white'} mr='300' mb={'300'}  >Latest reviews. Lowest prices.</Text>
+    </Box>
 
 
 <Box mt='10'>
@@ -179,7 +226,7 @@ return(
     variant='solid'
     spinnerPlacement='end'
     _hover={{backgroundColor:'red.400'}}
-    onClick={()=>addData(item)}
+    onClick={()=>twoPro(item)}
 
 
   >
@@ -205,7 +252,7 @@ return(
 </Box>
 
 
-
+<Mainpage/>
 
 
 

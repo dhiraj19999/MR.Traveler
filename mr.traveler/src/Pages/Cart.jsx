@@ -1,24 +1,50 @@
 import React from 'react'
 import {useContext} from 'react'
-import { Box,SimpleGrid,Image,Badge,Button } from "@chakra-ui/react"
+import { Box,SimpleGrid,Image,Badge,Button,HStack,Input,Text} from "@chakra-ui/react"
 import { StarIcon } from "@chakra-ui/icons"
 import { Appcontext } from '../Context/Auth'
+import Navbar from '../components/Navbar'
+import { Link } from 'react-router-dom'
+
+
+
 function Cart(){
 
-const{dat}=useContext(Appcontext)
+const{dat,singleItem,addData,}=useContext(Appcontext)
+
+
+
+       const handleRemove=(item)=>{
+
+        var newarr=dat.filter((ele)=>ele.hotelId!==item)
+      
+         
+         addData(newarr)
+
+
+        
+        
+        
+       }
+
+
+
+console.log(dat)
+
+
 
 
     return(
 
         <Box>
 
-
+<Navbar/>
 <Box mt='10'>
 
 <SimpleGrid columns={4} spacing={3}>
 
 {
-    (dat!=[]?dat.map((item)=>{
+    (dat!==[]?dat.map((item)=>{
       
         
        return        <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
@@ -67,11 +93,14 @@ const{dat}=useContext(Appcontext)
                 color={i < item.starRating ? 'teal.500' : 'gray.300'}
               />
             ))}
-          <Box as='span' ml='2' color='gray.600' fontSize='sm'>
+          <Box as='span' ml='3' color='gray.600' fontSize='sm'>
             {item.totalReviewCount} reviews
+          
+<Link to='/single'>
             <Button
+            mt='4'
             ml='4'
-    
+      onClick={()=>singleItem(item)   }
     loadingText='Loading'
     colorScheme='green'
     variant='solid'
@@ -81,11 +110,46 @@ const{dat}=useContext(Appcontext)
 
 
   >
-    Book Now
+    Conform Booking
   </Button>
+</Link>
+
+
+
+<Button mt='5'
+        
+        id={item.hotelId}
+            ml='4'
+      onClick={()=>handleRemove(item.hotelId)   }
+    loadingText='Loading'
+    colorScheme='green'
+    variant='solid'
+    spinnerPlacement='end'
+    _hover={{backgroundColor:'red.400'}}
+    
+
+
+
+  >
+    Remove
+  </Button>
+
+
+
+
+
+
+
           </Box>
+          
         </Box>
       </Box>
+
+      
+
+
+
+
     </Box>
   
       
@@ -94,6 +158,9 @@ const{dat}=useContext(Appcontext)
 
 
 </SimpleGrid>
+
+
+
 
 
 </Box>
