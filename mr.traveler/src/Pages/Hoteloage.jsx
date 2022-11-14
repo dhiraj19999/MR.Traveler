@@ -129,7 +129,7 @@ if(loading){
 
 
 return(
-<Box>
+<Box  background={"linear-gradient(to right, #33ccff 0%, #ff99cc 100%)"} w='9xl' h='9xl'>
 <Navbar/>
 
 <Box position={'relative'}>

@@ -17,7 +17,7 @@ function Allroutes(){
         <div>
 <Routes>
 <Route  path="/" element={<Home/>}/>
-<Route    path="/hotel" element={<PrivateRoute><HotelPage/></PrivateRoute>}/>
+<Route    path="/hotel" element={<HotelPage/>}/>
 <Route path='/login' element={<Login/>}/>
 <Route path='/cart' element={<PrivateRoute><Cart/></PrivateRoute>}/>
 <Route path='/single' element={<PrivateRoute><Singlepage/></PrivateRoute>}/>

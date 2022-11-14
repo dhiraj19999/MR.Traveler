@@ -1,12 +1,12 @@
 import React from 'react'
 import {useContext} from 'react'
 import { Flex,Spacer,Box,Image,Text,Button,Stack} from "@chakra-ui/react"
-import img1 from '../Images/Travler.png.png'
+
 import {EditIcon,StarIcon,InfoIcon} from '@chakra-ui/icons'
 import { BsCartCheck } from 'react-icons/bs'
 import {FaHotel} from 'react-icons/fa'
 import {AiOutlineHome} from 'react-icons/ai'
-
+import img1 from  '../Images/tt.png'
 import {MdRestaurant} from 'react-icons/md'
 import {SiMastodon} from 'react-icons/si'
 import {CgMore} from 'react-icons/cg'
@@ -99,14 +99,15 @@ const {handleLogout,auth}=useContext(Appcontext)
   
   
   
-    <Image
-  borderRadius='2xl'
-  boxSize='390px'
-  src={img1}
-  alt='Dan Abramov'
-  ml='10'
-/>
+  <Box p='4'  ml='60' mt='0' mb='6' display={'flex'}>
+  
+  
+  
+  <Image src={img1} w='20'/>
+   <Text fontWeight={'black'} color='black' mt='5' ml='2' fontSize={'30'}>MR.TRAVELER</Text>
 
+
+  </Box>
 
   </Box>
  

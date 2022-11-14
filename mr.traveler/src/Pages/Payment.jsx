@@ -3,7 +3,7 @@ import { useState } from 'react'
 import '../Pages/Payment.css'
 import img1 from '../Images/card_img.png'
 import Loading from '../Loading'
-
+import Otp from './Otp'
 import { Navigate } from 'react-router-dom'
 import PaymentSucces from './PaymentSucces'
 
@@ -25,7 +25,7 @@ setTimeout(() => {
 }
        
 if(pay){
-    return <PaymentSucces/>
+    return <Otp/>
 }
 
 
@@ -45,7 +45,7 @@ if(pay){
         <div class="container">
         
 
-    <form action="" onClick={handleClick}>
+    <form action="" >
 
         <div class="row">
 

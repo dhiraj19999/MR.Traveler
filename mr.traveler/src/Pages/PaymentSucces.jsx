@@ -7,7 +7,7 @@ function PaymentSucces(){
 
 
     return(
-        <Box>
+        <Box mt='40'>
  <Alert
   status='success'
   variant='subtle'
