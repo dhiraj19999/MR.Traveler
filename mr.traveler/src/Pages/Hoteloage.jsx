@@ -34,7 +34,7 @@ const[navbar,setNavbar]=useState(true)
 
 
 function twoPro(item){
-   
+ 
    addData(item)
         
    toast({
@@ -170,7 +170,7 @@ return(
     (data!=null?data.map((item,index)=>{
       if(index!=0 && index<=30){
         
-       return        <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
+       return        <Box  id={item.hotelId}   maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
       <Image src={item.media.url} alt={item.name} w='lg'  h='80' />
 
       <Box p='6'>

@@ -27,10 +27,28 @@ const handleLogout=()=>{
 
 
 const addData=(item)=>{
-
+    let count=0;
+if(dat!=[]){
+    dat.map((it)=>{
+        if(it.hotelId==item.hotelId){
+           count++;
+        }
+    })
+    if(count==0){
+        setDat([...dat,item])
+    }
+}
+if(dat==[]){
     setDat([...dat,item])
+}
+    
 
 }
+
+const remove=(da)=>{
+    setDat(da)
+}
+
 
 
 const singleItem=(sing)=>{
@@ -41,7 +59,7 @@ setSingle(sing)
 
 
 
-    return <Appcontext.Provider  value={{handleLogin,setDat,handleLogout,auth,token,addData,dat,singleItem,single}} >{children}</Appcontext.Provider>
+    return <Appcontext.Provider  value={{  remove,handleLogin,setDat,handleLogout,auth,token,addData,dat,singleItem,single}} >{children}</Appcontext.Provider>
 }
 
 

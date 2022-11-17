@@ -5,24 +5,29 @@ import { StarIcon } from "@chakra-ui/icons"
 import { Appcontext } from '../Context/Auth'
 import Navbar from '../components/Navbar'
 import { Link } from 'react-router-dom'
-
+import { useToast } from '@chakra-ui/react'
 
 
 function Cart(){
 
-const{dat,singleItem,addData,}=useContext(Appcontext)
-
+const{dat,singleItem,addData,remove}=useContext(Appcontext)
+const toast = useToast()
 
 
        const handleRemove=(item)=>{
 
-        var newarr=dat.filter((ele)=>ele.hotelId!==item)
+        var newarr=dat.filter((ele)=>ele.hotelId!==item.hotelId)
       
          
-         addData(newarr)
+        remove(newarr)
 
 
-        
+        toast({
+          title:'Product Removed Succesfully ',
+          status: 'success',
+          position:'top',
+          isClosable: true,
+        })
         
         
        }
@@ -120,7 +125,7 @@ console.log(dat)
         
         id={item.hotelId}
             ml='4'
-      onClick={()=>handleRemove(item.hotelId)   }
+      onClick={()=>handleRemove(item)   }
     loadingText='Loading'
     colorScheme='green'
     variant='solid'
