@@ -8,10 +8,10 @@ Login,signup,hotel booking,payment options and add to cart functionality are dev
 
 #  Some Images of MR.Traveler
 
-
+# Home Page
 ![tra1](https://user-images.githubusercontent.com/106136277/212601506-d179e05e-6c66-4a10-b32a-f2f6f14c1085.png)
 
-
+# Search Hotel
 
 ![tra2](https://user-images.githubusercontent.com/106136277/212601510-7b635ec3-0b73-4de6-bfd2-5dbaac1fc878.png)
 
