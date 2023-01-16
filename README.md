@@ -22,4 +22,4 @@ Login,signup,hotel booking,payment options and add to cart functionality are dev
 
 ![tra5](https://user-images.githubusercontent.com/106136277/212601597-6d393655-5b94-4377-8d94-3124af8671b4.png)
 
-![tra6](https://user-images.githubusercontent.com/106136277/212601601-535e3e74-5f71-4e5b-accd-706ddbd1cb25
+![tra6](https://user-images.githubusercontent.com/106136277/212602065-ad444f0f-3596-4bb5-9a77-3d01db3a43c5.png)
